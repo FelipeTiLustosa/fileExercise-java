@@ -26,7 +26,6 @@ public class Program {
             String line = bf.readLine();// Vai ler uma linha do arquivo, caso o arquivo esteja no final ele vai retorna null
             lines.add(line);
             while (line != null) {
-                // System.out.println(line);
                 line = bf.readLine();
                 lines.add(line);
             }
@@ -46,8 +45,7 @@ public class Program {
                     String n3 = split[2];
                     double price = Double.parseDouble(n2);
                     int quantity = Integer.parseInt(n3);
-                    Product prod= new Product(n1,price,quantity);
-                    products.add(prod);
+                    products.add(new Product(n1,price,quantity));
                 }
             }
             /*
@@ -56,27 +54,28 @@ public class Program {
                 System.out.println(p);
             }
             */
+            String path2 = "C:\\Users\\felip\\OneDrive\\Documento\\Desinvolvimento\\temp\\ws-intellj\\fileExercise-java\\src";
+
+            File file = new File(path2 + "\\out");
+            boolean success = file.mkdir();
+            String pathFull = file.getAbsolutePath();
+
+            System.out.println("'out' folder created: "+success);
+            String pathFileSummary = pathFull+"\\summary.csv";
+
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathFileSummary))){
+                for(Product p : products) {
+                    bw.write(p.toString());
+                    bw.newLine();
+                }
+            }
+            catch (IOException e){
+                System.out.println("Erro: " + e.getMessage());
+            }
         }
         catch (IOException e) {
             System.out.println("Erro: " + e.getMessage());
         }
-        String path2 = "C:\\Users\\felip\\OneDrive\\Documento\\Desinvolvimento\\temp\\ws-intellj\\fileExercise-java\\src";
 
-        File file = new File(path2 + "\\out");
-        boolean success = file.mkdir();
-        String pathFull = file.getAbsolutePath();
-
-        System.out.println("'out' folder created: "+success);
-        String pathFileSummary = pathFull+"\\summary.csv";
-
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathFileSummary))){
-        for(Product p : products) {
-            bw.write(p.toString());
-            bw.newLine();
-        }
-        }
-        catch (IOException e){
-            System.out.println("Erro: " + e.getMessage());
-        }
     }
 }
