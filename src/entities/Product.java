@@ -1,24 +1,24 @@
 package entities;
 
 public class Product {
-    private int nameProduct;
+    private String nameProduct;
     private int quantiProduct;
     private double price;
 
     public Product() {
     }
 
-    public Product(int nameProduct, int quantiProduct, double price) {
+    public Product(String nameProduct, double price,int quantiProduct) {
         this.nameProduct = nameProduct;
         this.quantiProduct = quantiProduct;
         this.price = price;
     }
 
-    public int getNameProduct() {
+    public String getNameProduct() {
         return nameProduct;
     }
 
-    public void setNameProduct(int nameProduct) {
+    public void setNameProduct(String nameProduct) {
         this.nameProduct = nameProduct;
     }
 
@@ -37,9 +37,11 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-
+    public  double multPrice(double price,int quantiProduct){
+        return price*quantiProduct;
+    }
     @Override
     public String toString() {
-        return nameProduct +" ,"+ quantiProduct +" ,"+ price+"\n";
+        return nameProduct +","+String.format("%.2f",multPrice(getPrice(),getQuantiProduct()));
     }
 }
