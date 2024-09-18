@@ -2,11 +2,10 @@
 
 ## Exercise description:
 
-### Fazer um programa para ler o caminho de um arquivo .csv
-###    contendo os dados de itens vendidos. Cada item possui um
-###    nome, preço unitário e quantidade, separados por vírgula. Você
-###    deve gerar um novo arquivo chamado "summary.csv", localizado
-###    em uma subpasta chamada "out" a partir da pasta original do
-###    arquivo de origem, contendo apenas o nome e o valor total para
-###    aquele item (preço unitário multiplicado pela quantidade),
-###    conforme exemplo.
+Write a program to read the path of a .csv file
+containing data about sold items. Each item has a
+name, unit price and quantity, separated by a comma. You
+should generate a new file called "summary.csv", located
+in a subfolder called "out" of the original folder
+source file, containing only the name and total value for
+this item (unit price multiplied by quantity).
